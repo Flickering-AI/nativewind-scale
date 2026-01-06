@@ -1,12 +1,12 @@
 {
-    "name": "@ldystudio/nw-scale",
-    "version": "1.0.2",
+    "name": "@flickering/nativewind-scale",
+    "version": "1.1.0",
     "description": "Scaling utilities for Nativewind",
     "author": "ldystudio",
     "license": "MIT",
     "repository": {
         "type": "git",
-        "url": "https://github.com/ldystudio/nativewind-scale"
+        "url": "git+https://github.com/Flickering-AI/nativewind-scale.git"
     },
     "scripts": {
         "build": "tsc",
