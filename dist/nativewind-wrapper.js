@@ -23,6 +23,9 @@ function NativewindWrapper({ children, config }) {
         });
     }, [config]);
     (0, react_1.useEffect)(() => {
+        scale_1.ScaleReference.isTablet = config.isTablet ?? false;
+    }, [config.isTablet]);
+    (0, react_1.useEffect)(() => {
         const onChange = ({ screen }) => setDimensions(screen);
         const subscription = react_native_1.Dimensions.addEventListener('change', onChange);
         return () => subscription?.remove();

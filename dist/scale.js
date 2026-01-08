@@ -7,11 +7,20 @@ const [shortDimension, longDimension] = width < height ? [width, height] : [heig
 class ScaleReference {
     static width = 375;
     static height = 667;
+    static isTablet = false;
 }
 exports.ScaleReference = ScaleReference;
-const scale = (size) => {
+/**
+ * Scales a given size to the device's screen size.
+ *
+ * @param {number} size The size to scale.
+ * @param {number} [tabletSize] The size to scale to when on a tablet, if undefined, will use the given size.
+ * @returns {number} The scaled size.
+ */
+const scale = (size, tabletSize) => {
     'worklet';
+    const finalSize = tabletSize !== undefined && ScaleReference.isTablet ? tabletSize : size;
     return react_native_1.PixelRatio.roundToNearestPixel(Math.min(shortDimension / ScaleReference.width, longDimension / ScaleReference.height) *
-        size);
+        finalSize);
 };
 exports.scale = scale;

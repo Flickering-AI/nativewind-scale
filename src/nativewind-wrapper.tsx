@@ -2,7 +2,7 @@ import { vars } from 'nativewind';
 import { PropsWithChildren, useMemo, useState, useEffect } from 'react';
 import { Dimensions, ScaledSize, View } from 'react-native';
 
-import { scale } from './scale';
+import { scale, ScaleReference } from './scale';
 import { Config } from 'tailwindcss';
 import { scaleVariables } from './scale-variables';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -29,6 +29,10 @@ export function NativewindWrapper({ children, config }: NativeWindWrapperProps) 
             return [`--scale-${name}`, scale(value)] as const;
         });
     }, [config]);
+
+    useEffect(() => {
+        ScaleReference.isTablet = config.isTablet ?? false;
+    }, [config.isTablet]);
 
     useEffect(() => {
         const onChange = ({ screen }: { screen: ScaledSize }) => setDimensions(screen);
