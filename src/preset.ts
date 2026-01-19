@@ -14,19 +14,13 @@ const combinedSpacing = {
   px: "1px",
   0: "0px",
   0.5: scaleVar(2),
+  "screen-x": "var(--screen-width)",
+  "screen-y": "var(--screen-height)",
 };
 
 export default {
   theme: {
     spacing: combinedSpacing,
-    spacingX: {
-      ...spacingVar,
-      screen: "var(--screen-width)",
-    },
-    spacingY: {
-      ...spacingVar,
-      screen: "var(--screen-height)",
-    },
     fontSize: {
       xxs: scaleVar(10),
       xs: scaleVar(12),
