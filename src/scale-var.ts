@@ -1,19 +1,19 @@
-import { scaleVariables } from './scale-variables';
+import { scaleVariables } from "./scale-variables";
 
 export const getScaleVariableName = (value: string, num: number) => {
-    const name = `var(--scale-${value})`;
+  const name = `var(--scale-${value})`;
 
-    if (!scaleVariables[name]) {
-        scaleVariables[name] = num;
-    }
+  if (!scaleVariables[name]) {
+    scaleVariables[name] = num;
+  }
 
-    return name;
+  return name;
 };
 
 export const scaleVar = (value: number) => {
-    if (value.toString().includes('.')) {
-        return getScaleVariableName(value.toString().split('.').join('_'), value);
-    }
+  if (value.toString().includes(".")) {
+    return getScaleVariableName(value.toString().split(".").join("_"), value);
+  }
 
-    return getScaleVariableName(value.toString(), value);
+  return getScaleVariableName(value.toString(), value);
 };

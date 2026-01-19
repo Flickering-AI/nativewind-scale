@@ -1,12 +1,13 @@
-import { Dimensions, PixelRatio } from 'react-native';
+import { Dimensions, PixelRatio } from "react-native";
 
-const { width, height } = Dimensions.get('window');
-const [shortDimension, longDimension] = width < height ? [width, height] : [height, width];
+const { width, height } = Dimensions.get("window");
+const [shortDimension, longDimension] =
+  width < height ? [width, height] : [height, width];
 
 export class ScaleReference {
-    static width = 375;
-    static height = 667;
-    static isTablet = false;
+  static width = 375;
+  static height = 667;
+  static isTablet = false;
 }
 
 /**
@@ -17,11 +18,14 @@ export class ScaleReference {
  * @returns {number} The scaled size.
  */
 export const scale = (size: number, tabletSize?: number) => {
-    'worklet';
-    const finalSize = tabletSize !== undefined && ScaleReference.isTablet ? tabletSize : size;
+  "worklet";
+  const finalSize =
+    tabletSize !== undefined && ScaleReference.isTablet ? tabletSize : size;
 
-    return PixelRatio.roundToNearestPixel(
-        Math.min(shortDimension / ScaleReference.width, longDimension / ScaleReference.height) *
-            finalSize
-    );
+  return PixelRatio.roundToNearestPixel(
+    Math.min(
+      shortDimension / ScaleReference.width,
+      longDimension / ScaleReference.height,
+    ) * finalSize,
+  );
 };

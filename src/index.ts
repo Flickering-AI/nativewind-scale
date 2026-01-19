@@ -1,2 +1,2 @@
-export { scale, ScaleReference } from './scale';
-export { NativewindWrapper } from './nativewind-wrapper';
+export { NativewindWrapper } from "./nativewind-wrapper";
+export { ScaleReference, scale } from "./scale";
