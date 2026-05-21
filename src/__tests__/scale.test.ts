@@ -27,6 +27,12 @@ describe("scale", () => {
     ScaleReference.width = 375;
     ScaleReference.height = 667;
     ScaleReference.isTablet = false;
+    ScaleReference.setWindow({
+      width: 375,
+      height: 812,
+      scale: 2,
+      fontScale: 1,
+    });
   });
 
   it("should scale size based on reference dimensions", () => {
@@ -60,5 +66,18 @@ describe("scale", () => {
     const large = scale(20);
     // 20 是 10 的两倍，所以缩放结果也应该是两倍
     expect(large / small).toBeCloseTo(2, 1);
+  });
+
+  it("should use the latest window dimensions", () => {
+    const initial = scale(100);
+
+    ScaleReference.setWindow({
+      width: 750,
+      height: 1334,
+      scale: 2,
+      fontScale: 1,
+    });
+
+    expect(scale(100)).toBeGreaterThan(initial);
   });
 });

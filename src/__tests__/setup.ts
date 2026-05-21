@@ -6,6 +6,7 @@ mock.module("react-native", () => ({
     get: () => ({ width: 375, height: 812 }),
     addEventListener: () => ({ remove: () => {} }),
   },
+  useWindowDimensions: () => ({ width: 375, height: 812 }),
   PixelRatio: {
     roundToNearestPixel: (value: number) => Math.round(value * 2) / 2,
   },
