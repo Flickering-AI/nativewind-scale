@@ -1,6 +1,6 @@
 import { vars } from "nativewind";
 import type { PropsWithChildren } from "react";
-import { useWindowDimensions, View } from "react-native";
+import { useWindowDimensions, View, Dimensions } from "react-native";
 
 import { scale, ScaleReference } from "./scale";
 import type { Config } from "tailwindcss";
@@ -12,6 +12,8 @@ type NativeWindWrapperProps = PropsWithChildren<{
     isTablet?: boolean;
   };
 }>;
+
+const { width: screenWidth, height: screenHeight } = Dimensions.get("screen");
 
 export function NativewindWrapper({
   children,
@@ -40,8 +42,8 @@ export function NativewindWrapper({
         { flex: 1 },
         vars({
           ...Object.fromEntries(variables),
-          "--screen-width": window.width,
-          "--screen-height": window.height,
+          "--screen-width": screenWidth,
+          "--screen-height": screenHeight,
           "--safe-t": insets.top,
           "--safe-b": insets.bottom,
           "--safe-l": insets.left,
