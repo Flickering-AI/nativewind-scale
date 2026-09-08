@@ -1,6 +1,6 @@
 {
   "name": "@flickering/nativewind-scale",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "description": "Scaling utilities for Nativewind",
   "author": "ldystudio",
   "license": "MIT",
@@ -11,7 +11,7 @@
   "scripts": {
     "build": "rm -rf dist && tsc",
     "test": "bun test",
-    "release": "bun run build && npm publish --access public"
+    "prepublishOnly": "bunx tsc --noEmit && bun test && bun run build"
   },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
