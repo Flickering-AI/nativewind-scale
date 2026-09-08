@@ -38,6 +38,10 @@ export function NativewindWrapper({
 
   return (
     <View
+      {...{
+        className: "group/scale",
+        dataSet: { tablet: String(isTablet) },
+      }}
       style={[
         { flex: 1 },
         vars({

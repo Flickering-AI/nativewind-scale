@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import plugin from "tailwindcss/plugin";
 import { scaleVar } from "./scale-var";
 
 const space = 1;
@@ -19,6 +20,11 @@ const combinedSpacing = {
 };
 
 export default {
+  plugins: [
+    plugin(({ addVariant }) => {
+      addVariant("tablet", ".group\\/scale[data-tablet=true] &");
+    }),
+  ],
   theme: {
     spacing: combinedSpacing,
     fontSize: {

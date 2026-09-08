@@ -95,15 +95,13 @@ describe("preset", () => {
     });
   });
 
-  describe("spacingX and spacingY", () => {
-    it("should have spacingX with screen value", () => {
-      expect(preset.theme.spacingX).toBeDefined();
-      expect(preset.theme.spacingX.screen).toBe("var(--screen-width)");
+  describe("screen spacing", () => {
+    it("should map screen-x to screen width", () => {
+      expect(preset.theme.spacing["screen-x"]).toBe("var(--screen-width)");
     });
 
-    it("should have spacingY with screen value", () => {
-      expect(preset.theme.spacingY).toBeDefined();
-      expect(preset.theme.spacingY.screen).toBe("var(--screen-height)");
+    it("should map screen-y to screen height", () => {
+      expect(preset.theme.spacing["screen-y"]).toBe("var(--screen-height)");
     });
   });
 });
