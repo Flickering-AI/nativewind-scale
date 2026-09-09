@@ -41,6 +41,9 @@ export function NativewindWrapper({
       {...{
         className: "group/scale",
         dataSet: { tablet: String(isTablet) },
+        // NativeWind 会把 group 容器转为 Pressable；这里只提供样式，不能抢占滚动响应
+        disabled: true,
+        accessible: false,
       }}
       style={[
         { flex: 1 },
