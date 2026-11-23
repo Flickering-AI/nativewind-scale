@@ -2,7 +2,7 @@ import { Dimensions, PixelRatio, type ScaledSize } from "react-native";
 
 export class ScaleReference {
   static width = 375;
-  static height = 667;
+  static height = 812;
   static isTablet = false;
   static window = Dimensions.get("window");
 

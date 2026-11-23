@@ -6,8 +6,8 @@ describe("ScaleReference", () => {
     expect(ScaleReference.width).toBe(375);
   });
 
-  it("should have default height of 667", () => {
-    expect(ScaleReference.height).toBe(667);
+  it("should have default height of 812", () => {
+    expect(ScaleReference.height).toBe(812);
   });
 
   it("should have default isTablet of false", () => {
@@ -25,7 +25,7 @@ describe("ScaleReference", () => {
 describe("scale", () => {
   beforeEach(() => {
     ScaleReference.width = 375;
-    ScaleReference.height = 667;
+    ScaleReference.height = 812;
     ScaleReference.isTablet = false;
     ScaleReference.setWindow({
       width: 375,
